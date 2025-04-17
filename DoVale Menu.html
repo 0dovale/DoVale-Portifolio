@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DoVale - Portifólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet">
+  <style>
+
+.project-img {
+  width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    :root {
+      --bg: #0e0e0e;
+      --text: #f0f0f0;
+      --primary: #00ffff;
+      --card-bg: #1f1f1f;
+    }
+
+    body.light {
+      --bg: #f9f9f9;
+      --text: #111;
+      --primary: #007aff;
+      --card-bg: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Underdog', cursive;
+      background: var(--bg);
+      color: var(--text);
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background: var(--card-bg);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: var(--primary);
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      background: var(--primary);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px #00000033;
+      transition: 0.2s;
+    }
+
+    .theme-toggle:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px #00000033;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .section {
+      padding: 60px 40px;
+    }
+
+    .section h3 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: var(--primary);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px #00000044;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px #00000066;
+    }
+
+    .contact {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    form button {
+      background: var(--primary);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    form button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--card-bg);
+      color: #999;
+    }
+
+    .profile-pic {
+      width: 250px;
+      height: 250px;
+      padding: 5px;
+      border-radius: 50%;
+      background: linear-gradient(270deg, red, blue, lime, magenta, cyan, yellow, red);
+      background-size: 1400% 1400%;
+      animation: rgbBorder 6s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px #00ffffaa;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--bg);
+    }
+
+    @keyframes rgbBorder {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.skill {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px #00000044;
+}
+
+.skill span {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.progress-bar {
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 10px;
+}
+
+.progress {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.5s ease;
+}
+
+.floating-toggle {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet, red);
+  background-size: 1400% 1400%;
+  animation: rgbGlow 10s linear infinite;
+  border: 2px solid #fff1;
+}
+
+@keyframes rgbGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rgbPulse {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.theme-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #00ffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  animation: rgbPulse 3s infinite linear, spin 6s linear infinite;
+  font-size: 24px;
+  color: #000;
+  transition: transform 0.2s;
+}
+
+.theme-float:active {
+  transform: scale(0.9);
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DoVale Form</h1>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+      <a href="#habilidades">Habilidades</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="profile-pic">
+      <img src="dovale.png" alt="Minha Foto" />
+    </div>
+    <h2>Olá, sou <span style="color:var(--primary);">Pedro do Vale</span></h2>
+    <p>Futuro Scripter Profissional</p>
+  </section>
+
+  <section class="section" id="sobre">
+    <h3>Sobre Mim</h3>
+    <p>Sou criador de cheat de jogos em linguagem lua e crio servidores de SAMP em linguagem pawn. Não sou 100% Profissional no que faço, mas tento ser.</p>
+  </section>
+
+  <section class="section" id="projetos">
+    <h3>Projetos</h3>
+    <div class="projects">
+      <div class="project">
+        <img src="UltraFuck - SAMP.jpg" alt="UltraFuck" class="project-img" />
+        <h4>UltraFuck - SAMP</h4>
+        <p>Mod Menu de SAMP, spawna veículos, deixa invencível, troca skin, entre outros.</p>
+      </div>
+      <div class="project">
+        <img src="DoVale Menu - Roblox.PNG" alt="DoVale Menu" class="project-img" />
+        <h4>DoVale Menu - Roblox</h4>
+        <p>Painel interativo feito por mim, possui teleporte, voar, wallhack, entre outros.</p>
+      </div>
+      <div class="project">
+        <img src="Scarllet Menu - SAMP.jpg" alt="Scarllet Menu" class="project-img" />
+        <h4>Scarllet Menu - SAMP</h4>
+        <p>Mod Menu de SAMP, não é meu, mas ajudei no desenvolvimento, possui opções do UltraFuck e mais.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section" id="habilidades">
+    <h3>Habilidades</h3>
+    <div class="skills">
+      <div class="skill">
+        <span>Lua - 45%</span>
+        <div class="progress-bar">
+          <div class="progress" style="width: 45%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <span>Pawn 55%</span>
+        <div class="progress-bar">
+          <div class="progress" style="width: 55%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="section contact" id="contato">
+    <h3>Entre em Contato</h3>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Seu Nome" required />
+      <input type="email" name="email" placeholder="Seu Email" required />
+      <textarea name="message" placeholder="Sua Mensagem..." rows="5" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    Copyright © 2025 DoVale Form. Todos os direitos reservados.
+  </footer>
+  
+  <audio id="click-sound" src="Bloop.mp3"></audio>
+
+  <script>
+    const themeButton = document.createElement('button');
+    const clickSound = document.getElementById('click-sound');
+  
+    themeButton.classList.add('theme-float');
+    themeButton.innerText = '☀️';
+  
+    themeButton.onclick = () => {
+      document.body.classList.toggle('light');
+      
+      // Toca o som
+      if (clickSound) {
+        clickSound.currentTime = 0;
+        clickSound.play().catch(e => {
+          console.warn("Falha ao tocar som:", e);
+        });
+      }
+  
+      // Ícone
+      if (document.body.classList.contains('light')) {
+        themeButton.innerText = '🌙';
+      } else {
+        themeButton.innerText = '☀️';
+      }
+    };
+  
+    document.body.appendChild(themeButton);
+  </script>
+  
+</body>
+</html>
